@@ -8,7 +8,7 @@ class KiwiHomePage:
         self.return_type_picker_button = (
             "//div[@data-test='SearchFormModesPicker-active-return']"
         )
-        self.one_way_button = "//a[@data-test='ModePopupOption-oneWay']"
+        self.one_way_button = "//a[@data-test='ModePopupOption-oneWay___']"
         self.departure_input = "//div[@data-test='SearchFieldItem-origin']//input"
         self.arrival_input = "//div[@data-test='SearchFieldItem-destination']//input"
         self.departure_date_input = "//div[@data-test='SearchDateInput']"

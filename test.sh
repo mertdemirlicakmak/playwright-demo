@@ -47,6 +47,12 @@ clean_env() {
     echo "Virtual environment removed."
 }
 
+# Function to run linters
+run_linters() {
+    echo "Running linters..."
+    ruff check
+}
+
 # Main script execution
 if [ "$1" == "build-image" ]; then
     build_image
@@ -61,6 +67,8 @@ elif [ "$1" == "test-local" ]; then
     run_tests_local "$@"
 elif [ "$1" == "clean" ]; then
     clean_env
+elif [ "$1" == "run-linters" ]; then
+    run_linters
 else
     echo "Usage: $0 {build-image|test-docker|setup-local-env|test-local [pytest_options]|clean}"
     exit 1

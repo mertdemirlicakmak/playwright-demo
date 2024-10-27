@@ -1,5 +1,7 @@
 ## Playwright UI testing demo
 
+This repo contains a test which runs a basic search UI automation test towards 'kiwi.com'
+
 Prerequisites:
 - Python 3.12
 - Google Chrome
@@ -35,4 +37,12 @@ There are two ways to run the test: locally and with docker.
 
 ```
 ./test.sh test-docker -m basic_search
+```
+
+#### Running linters
+
+* Execute following command:
+
+```
+./test.sh run-linters
 ```

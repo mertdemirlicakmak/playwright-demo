@@ -11,21 +11,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Setup Environment') {
+        stage('Build docker image') {
             steps {
-                sh '''
-                python3 -m venv $VENV_DIR
-                source $VENV_DIR/bin/activate
-                pip install -r requirements.txt
-                '''
+                sh './test.sh build-docker-image'
             }
         }
-        stage('Run Tests') {
+        stage('Run Tests In Docker') {
             steps {
-                sh '''
-                source $VENV_DIR/bin/activate
-                pytest --junitxml=results.xml
-                '''
+                sh './test.sh test-docker -m basic_search'
             }
         }
     }

@@ -48,7 +48,7 @@ clean_env() {
 }
 
 # Main script execution
-if [ "$1" == "build" ]; then
+if [ "$1" == "build-image" ]; then
     build_image
 elif [ "$1" == "test-docker" ]; then
     shift

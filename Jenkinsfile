@@ -11,14 +11,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Run Linters') {
-            steps {
-                sh './test.sh run-linters'
-            }
-        }
         stage('Build docker image') {
             steps {
                 sh './test.sh build-image'
+            }
+        }
+        stage('Run Linters') {
+            steps {
+                sh './test.sh run-linters'
             }
         }
         stage('Run Tests In Docker') {

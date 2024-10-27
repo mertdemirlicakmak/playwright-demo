@@ -3,30 +3,36 @@
 Prerequisites:
 - Python 3.12
 - Google Chrome
+- Docker
 
 ### Steps to run the test:
 
-* Create a Python virtual environment:
+There are two ways to run the test: locally and with docker.
+
+#### Local Run Instructions
+
+* Setup local environment:
 
 ```
-python -m venv venv
-source venv/bin/activate 
+./test.sh setup-local-env
 ```
 
-* Install requirements with pip:
+* Run test with following command:
 
 ```
-python -m pip install -r requirements.txt
+./test.sh test-local -m basic_search
 ```
 
-* Install playwright:
+#### Docker Run Instructions
+
+* Build image:
 
 ```
-playwright install
+./test.sh build-image
 ```
 
-* Run the test:
+* Run test with:
 
-``` 
-pytest -m "basic_search"
+```
+./test.sh test-docker -m basic_search
 ```

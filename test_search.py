@@ -5,17 +5,21 @@ from kiwi_home_page import KiwiHomePage
 from pytest_bdd import scenarios, given, when, then
 
 # Link the feature file with the step definitions
-scenarios("features/basic_search.feature")
+scenarios("./features/basic_search.feature")
 
 
 @pytest.fixture
 def page_context():
     with sync_playwright() as p:
-        # Set headless=False to see the browser window
         browser = p.chromium.launch(
-            headless=False, slow_mo=600
-        )  # slow_mo slows down actions for better visualization
-        page = browser.new_page()
+            headless=True,
+            slow_mo=300,
+        )
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.179 Safari/537.36"
+        )
+        page = context.new_page()
+        # stealth_sync(page)  # Activate stealth mode
         yield page
         browser.close()
 

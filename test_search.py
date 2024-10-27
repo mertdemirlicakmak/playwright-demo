@@ -1,35 +1,8 @@
-import pytest
 from datetime import datetime, timedelta
-from playwright.sync_api import sync_playwright
-from kiwi_home_page import KiwiHomePage
 from pytest_bdd import scenarios, given, when, then
 
 # Link the feature file with the step definitions
 scenarios("./features/basic_search.feature")
-
-
-@pytest.fixture
-def page_context():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(
-            headless=True,
-            slow_mo=300,
-        )
-        context = browser.new_context(
-            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.5845.179 Safari/537.36"
-        )
-        page = context.new_page()
-        # stealth_sync(page)  # Activate stealth mode
-        yield page
-        browser.close()
-
-
-@pytest.fixture
-def homepage(page_context):
-    home = KiwiHomePage(page_context)
-    home.open()
-    home.click_close_cookies_window()
-    return home
 
 
 @given("As an not logged user navigate to homepage https://www.kiwi.com/en/")

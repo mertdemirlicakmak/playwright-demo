@@ -34,10 +34,10 @@ setup_local_env() {
 }
 
 # Function to run tests locally
-run_tests_local() {
+run_tests_locally() {
     echo "Running tests locally with command: pytest $*"
     source $VENV_DIR/bin/activate
-    pytest "$@" --junitxml=test_report.xml
+    pytest "$@" --junitxml=results.xml
 }
 
 # Function to clean the virtual environment
@@ -64,7 +64,7 @@ elif [ "$1" == "setup-local-env" ]; then
     setup_local_env
 elif [ "$1" == "test-local" ]; then
     shift
-    run_tests_local "$@"
+    run_tests_locally "$@"
 elif [ "$1" == "clean" ]; then
     clean_env
 elif [ "$1" == "run-linters" ]; then

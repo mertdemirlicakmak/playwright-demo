@@ -32,5 +32,9 @@ pipeline {
         always {
             junit 'results.xml'
         }
+        failure {
+            echo 'Tests failed!'
+            archiveArtifacts artifacts: 'screenshots/*.png', fingerprint: true
+        }
     }
 }

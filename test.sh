@@ -37,7 +37,7 @@ setup_local_env() {
 run_tests_local() {
     echo "Running tests locally with command: pytest $*"
     source $VENV_DIR/bin/activate
-    pytest "$@"
+    pytest "$@" --junitxml=test_report.xml
 }
 
 # Function to clean the virtual environment

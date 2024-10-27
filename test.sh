@@ -50,7 +50,7 @@ clean_env() {
 # Function to run linters
 run_linters() {
     echo "Running linters..."
-    ruff check
+    docker run --rm -v "$(pwd)":/app -w /app $IMAGE_NAME ruff check
 }
 
 # Main script execution

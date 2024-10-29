@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {    
+      ansiColor('xterm')
+    }
+
     environment {
         VENV_DIR = ".venv"
     }

@@ -11,7 +11,7 @@ Prerequisites:
 
 There are two ways to run the test: locally and with docker.
 
-#### Local Run Instructions
+#### Local Run Instructions (MacOS)
 
 * Setup local environment:
 

@@ -2,7 +2,7 @@ from datetime import datetime
 import os
 import pytest
 from playwright.sync_api import sync_playwright
-from kiwi_home_page import KiwiHomePage
+from poms.kiwi_home_page import KiwiHomePage
 
 
 @pytest.fixture

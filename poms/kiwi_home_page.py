@@ -8,7 +8,7 @@ class KiwiHomePage:
         self.return_type_picker_button = (
             "//div[@data-test='SearchFormModesPicker-active-return']"
         )
-        self.one_way_button = "//a[@data-test='ModePopupOption-oneWay___']"
+        self.one_way_button = "//a[@data-test='ModePopupOption-oneWay']"
         self.departure_input = "//div[@data-test='SearchFieldItem-origin']//input"
         self.arrival_input = "//div[@data-test='SearchFieldItem-destination']//input"
         self.departure_date_input = "//div[@data-test='SearchDateInput']"
@@ -21,7 +21,8 @@ class KiwiHomePage:
         self.page.goto("https://www.kiwi.com/en/")
 
     def click_close_cookies_window(self):
-        self.page.click(self.close_cookies_window_button)
+        if self.page.is_visible(self.booking_checkbox):
+            self.page.click(self.close_cookies_window_button)
 
     def select_one_way_trip(self):
         self.page.click(self.return_type_picker_button)
@@ -54,8 +55,6 @@ class KiwiHomePage:
 
     def uncheck_booking_checkbox(self):
         self.page.click(self.booking_checkbox)
-        # if self.page.is_checked(self.booking_checkbox):
-        #    self.page.click(self.booking_checkbox)
 
     def click_search_button(self):
         self.page.click(self.search_button)

@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from pytest_bdd import scenarios, given, when, then
 
 # Link the feature file with the step definitions
-scenarios("./features/basic_search.feature")
+scenarios("../features/basic_search.feature")
 
 
 @given("As an not logged user navigate to homepage https://www.kiwi.com/en/")

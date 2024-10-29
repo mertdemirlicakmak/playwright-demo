@@ -34,11 +34,11 @@ pipeline {
 
     post {
         always {
-            junit 'results.xml'
+            junit '**/test-reports/results.xml'
         }
         failure {
             echo 'Tests failed!'
-            archiveArtifacts artifacts: 'screenshots/*.png', fingerprint: true
+            archiveArtifacts artifacts: 'test-reports/screenshots/*.png', fingerprint: true
         }
     }
 }

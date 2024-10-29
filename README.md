@@ -7,6 +7,14 @@ Prerequisites:
 - Google Chrome
 - Docker
 
+### Folder structure
+
+Gherkin feature files are located in the `features` folder.
+
+Page object models for the sites are located in the `poms` folder.
+
+Pytest BDD test cases are located in the `tests` folder.
+
 ### Steps to run the test:
 
 There are two ways to run the test: locally and with docker.

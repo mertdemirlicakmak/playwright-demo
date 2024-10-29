@@ -34,11 +34,11 @@ def capture_screenshot_on_failure(request, page_context):
     # If the test fails, capture a screenshot
     if request.node.rep_call.failed:
         # Create the screenshots directory if it doesn't exist
-        os.makedirs("screenshots", exist_ok=True)
+        os.makedirs("test-reports/screenshots", exist_ok=True)
 
         # Generate a timestamp
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        screenshot_path = f"screenshots/screenshot_{timestamp}.png"
+        screenshot_path = f"test-reports/screenshots/screenshot_{timestamp}.png"
 
         # Capture the screenshot
         page_context.screenshot(path=screenshot_path)

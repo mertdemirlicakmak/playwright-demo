@@ -12,8 +12,11 @@ build_image() {
 
 # Function to run tests in the Docker container
 run_tests_in_docker() {
+    echo "Cleaning up old test reports..."
+    rm -rf "$(pwd)/test-reports"
+    mkdir -p "$(pwd)/test-reports"
     echo "Running tests in Docker with command: pytest $*"
-    docker run --rm -t -v "$(pwd)":/app -w /app $IMAGE_NAME pytest "$@"
+    docker run --rm -t -v "$(pwd)":/app -w /app $IMAGE_NAME pytest "$@" --junitxml=test-reports/results.xml
 }
 
 # Function to create a virtual environment and install dependencies
@@ -38,7 +41,7 @@ setup_local_env() {
 run_tests_locally() {
     echo "Running tests locally with command: pytest $*"
     source $VENV_DIR/bin/activate
-    pytest "$@" --junitxml=results.xml
+    pytest "$@" --junitxml=test-reports/results.xml
 }
 
 # Function to clean the virtual environment

@@ -44,4 +44,5 @@ def click_search_button(homepage):
 @then("I am redirected to search results page")
 def verify_search_results(homepage):
     current_url = homepage.page.url
-    assert "search/results" in current_url
+    # assert "search/results" in current_url
+    assert "search=results" in current_url

@@ -24,15 +24,14 @@ pipeline {
         stage('Run Tests In Docker') {
             steps {
                 sh './test.sh test-docker -m basic_search'
-                junit 'results.xml'
             }
         }
     }
 
     post {
-        // always {
-        //     junit 'results.xml'
-        // }
+        always {
+            junit 'results.xml'
+        }
         failure {
             echo 'Tests failed!'
             archiveArtifacts artifacts: 'screenshots/*.png', fingerprint: true

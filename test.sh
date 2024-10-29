@@ -13,7 +13,7 @@ build_image() {
 # Function to run tests in the Docker container
 run_tests_in_docker() {
     echo "Running tests in Docker with command: pytest $*"
-    docker run --rm -it -v "$(pwd)":/app -w /app $IMAGE_NAME pytest "$@"
+    docker run --rm -t -v "$(pwd)":/app -w /app $IMAGE_NAME pytest "$@"
 }
 
 # Function to create a virtual environment and install dependencies
